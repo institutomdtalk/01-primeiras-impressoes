@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Primeiras Impressões — English for Travelers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Lora:ital,wght@0,400;0,500;1,400&family=Outfit:wght@400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F4F0;
+  --bg-w:#EFEBE5;
+  --bg-c:#FFFFFF;
+  --ink:#1E1B18;
+  --ink-s:#3B3530;
+  --ink-m:#8A8078;
+  --copper:#A0714F;
+  --copper-d:#7D5538;
+  --copper-l:#C4956D;
+  --copper-bg:#FBF5EF;
+  --charcoal:#2C2825;
+  --charcoal-l:#3E3934;
+  --olive:#5C6B4A;
+  --olive-bg:#F1F4ED;
+  --wine:#8B4049;
+  --wine-bg:#FBF0F1;
+  --slate:#4A5C6B;
+  --slate-bg:#EEF2F5;
+  --plum:#6B4A6B;
+  --plum-bg:#F5EEF5;
+  --brd:#E0DAD2;
+  --brd-l:#EBE7E1;
+  --fd:'Lora',Georgia,serif;
+  --fb:'Outfit',sans-serif;
+  --fm:'Fira Code',monospace;
+  --r:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);line-height:1.78;font-size:16.5px;-webkit-font-smoothing:antialiased}
+
+/* ══ HERO ══ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(160deg,#1E1B18 0%,#2C2825 30%,#3E3934 55%,#2C2825 80%,#1E1B18 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 50% at 30% 45%,rgba(160,113,79,.1) 0%,transparent 55%),radial-gradient(ellipse 50% 40% at 70% 50%,rgba(196,149,109,.06) 0%,transparent 50%);z-index:1}
+.hero::after{content:'';position:absolute;inset:0;opacity:.3;background-image:url("data:image/svg+xml,%3Csvg width='50' height='50' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='25' cy='25' r='1' fill='%23C4956D' fill-opacity='.04'/%3E%3C/svg%3E");z-index:1}
+
+.hero-c{position:relative;z-index:2;text-align:center;padding:2rem;max-width:760px;animation:hIn 1.4s ease-out}
+@keyframes hIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-module{display:inline-block;font-family:var(--fb);font-size:.65rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--copper-l);border:1px solid rgba(196,149,109,.25);padding:.4rem 1.3rem;border-radius:100px;margin-bottom:2rem;background:rgba(196,149,109,.06)}
+
+.hero h1{font-family:var(--fd);font-size:clamp(2.4rem,5.5vw,4.4rem);font-weight:400;color:#F7F4F0;line-height:1.14;letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--copper-l);font-weight:400}
+.hero-line{width:45px;height:1px;background:var(--copper-l);margin:2rem auto;opacity:.3}
+.hero-sub{font-family:var(--fd);font-size:1.1rem;color:rgba(247,244,240,.42);font-weight:400;font-style:italic;line-height:1.7;max-width:500px;margin:0 auto}
+
+.hero-scroll{margin-top:3.5rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(247,244,240,.22);font-family:var(--fb);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;animation:pls 2.5s ease-in-out infinite}
+.hero-scroll svg{width:16px;height:16px;stroke:rgba(247,244,240,.22)}
+@keyframes pls{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:.8;transform:translateY(5px)}}
+
+/* ══ NAV ══ */
+.nav{position:sticky;top:0;z-index:100;background:rgba(247,244,240,.93);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--brd-l)}
+.nav-in{max-width:1200px;margin:0 auto;padding:0 2rem;overflow-x:auto;scrollbar-width:none}
+.nav-in::-webkit-scrollbar{display:none}
+.nav-ul{display:flex;list-style:none;white-space:nowrap}
+.nav-ul a{display:block;padding:.9rem 1rem;font-family:var(--fb);font-size:.63rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-m);text-decoration:none;border-bottom:2px solid transparent;transition:all .3s ease}
+.nav-ul a:hover{color:var(--copper);border-bottom-color:var(--copper)}
+
+/* ══ MAIN ══ */
+.main{max-width:860px;margin:0 auto;padding:0 2rem 6rem}
+
+/* ══ SECTION ══ */
+.sc{padding-top:4.5rem}
+.sc-tag{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fb);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.7rem;color:var(--copper)}
+.sc-tag .n{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;font-size:.56rem;font-weight:700;letter-spacing:0;color:#fff;background:var(--copper)}
+
+.sc h2{font-family:var(--fd);font-size:clamp(1.65rem,3vw,2.3rem);font-weight:500;color:var(--ink);line-height:1.25;margin-bottom:.3rem}
+.sc-sub{font-family:var(--fd);font-size:1rem;color:var(--ink-m);font-weight:400;font-style:italic;margin-bottom:2rem;line-height:1.6}
+.sc-intro{font-size:.95rem;color:var(--ink-s);line-height:1.85;margin-bottom:2rem;max-width:720px}
+
+/* ══ GROUP & CARDS ══ */
+.gr{margin-bottom:2.4rem}
+.gr-t{font-family:var(--fb);font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-s);margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:1px solid var(--brd)}
+
+.cd{background:var(--bg-c);border:1px solid var(--brd-l);border-radius:var(--r);padding:1.1rem 1.35rem;margin-bottom:.5rem;transition:all .25s ease}
+.cd:hover{border-color:var(--brd);box-shadow:0 4px 16px rgba(30,27,24,.05);transform:translateY(-1px)}
+.cd .en{font-family:var(--fd);font-size:1.1rem;font-weight:500;color:var(--ink);line-height:1.5;margin-bottom:.12rem}
+.cd .pt{font-family:var(--fb);font-size:.83rem;color:var(--ink-m);line-height:1.5}
+
+.nt{margin-top:.5rem;font-family:var(--fb);font-size:.73rem;padding:.45rem .75rem;border-radius:6px;line-height:1.55;border-left:3px solid}
+.nt.copper{color:var(--copper-d);background:var(--copper-bg);border-color:var(--copper)}
+.nt.olive{color:var(--olive);background:var(--olive-bg);border-color:var(--olive)}
+.nt.wine{color:var(--wine);background:var(--wine-bg);border-color:var(--wine)}
+.nt.slate{color:var(--slate);background:var(--slate-bg);border-color:var(--slate)}
+.nt.plum{color:var(--plum);background:var(--plum-bg);border-color:var(--plum)}
+
+/* ══ VERSUS CARD ══ */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1rem 0 1.5rem}
+.vs-card{border-radius:var(--r);padding:1.2rem 1.3rem;border:1px solid}
+.vs-card.do{background:var(--olive-bg);border-color:rgba(92,107,74,.15)}
+.vs-card.dont{background:var(--wine-bg);border-color:rgba(139,64,73,.15)}
+.vs-label{font-family:var(--fb);font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem}
+.vs-card.do .vs-label{color:var(--olive)}
+.vs-card.dont .vs-label{color:var(--wine)}
+.vl-ic{width:14px;height:14px;vertical-align:-3px;margin-right:.4rem}
+.mk{display:inline-flex;vertical-align:-3px;margin-right:.35rem}.mk svg{width:15px;height:15px}
+.mk.no{color:var(--wine)}.mk.ok{color:var(--olive)}
+.vs-card .en{font-family:var(--fd);font-size:1rem;font-weight:500;color:var(--ink);line-height:1.45;margin-bottom:.1rem}
+.vs-card .pt{font-family:var(--fb);font-size:.78rem;color:var(--ink-m);line-height:1.4}
+
+/* ══ MINDSET CARD ══ */
+.mindset{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1rem 0 1.5rem}
+.ms-card{border-radius:var(--r);padding:1.1rem 1.2rem;border:1px solid}
+.ms-card.guilt{background:var(--wine-bg);border-color:rgba(139,64,73,.12)}
+.ms-card.conf{background:var(--olive-bg);border-color:rgba(92,107,74,.12)}
+.ms-label{font-family:var(--fb);font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.4rem}
+.ms-card.guilt .ms-label{color:var(--wine)}
+.ms-card.conf .ms-label{color:var(--olive)}
+.ms-card .en{font-family:var(--fd);font-size:.95rem;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:.1rem}
+.ms-card.guilt .en{text-decoration:line-through;opacity:.6}
+.ms-card .pt{font-family:var(--fb);font-size:.76rem;color:var(--ink-m);line-height:1.4}
+
+/* ══ CONTEXT BAR ══ */
+.ctx-bar{display:flex;gap:.4rem;flex-wrap:wrap;margin:1rem 0 1.5rem}
+.ctx-item{background:var(--charcoal);border-radius:8px;padding:.65rem 1rem;color:#F7F4F0}
+.ctx-item .label{font-family:var(--fb);font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--copper-l);margin-bottom:.2rem}
+.ctx-item .en{font-family:var(--fd);font-size:.92rem;font-weight:500;color:#F7F4F0;line-height:1.35}
+.ctx-item .pt{font-family:var(--fb);font-size:.7rem;color:rgba(247,244,240,.45)}
+
+/* ══ BLOCKS ══ */
+.bk{border-radius:12px;padding:1.5rem 1.6rem;margin:2rem 0;position:relative;border:1px solid}
+.bk::before{content:'';position:absolute;top:-5px;left:1.4rem;width:9px;height:9px;transform:rotate(45deg);box-shadow:0 0 0 4px var(--bg)}
+.bk h4{font-family:var(--fb);font-size:.64rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem}
+.bk p{font-size:.91rem;color:var(--ink-s);line-height:1.75}
+
+.bk.rule{background:linear-gradient(135deg,var(--copper-bg),var(--bg));border-color:rgba(160,113,79,.15)}
+.bk.rule::before{background:var(--copper)} .bk.rule h4{color:var(--copper)}
+
+.bk.tip{background:linear-gradient(135deg,var(--olive-bg),var(--bg));border-color:rgba(92,107,74,.15)}
+.bk.tip::before{background:var(--olive)} .bk.tip h4{color:var(--olive)}
+
+.bk.alert{background:linear-gradient(135deg,var(--wine-bg),var(--bg));border-color:rgba(139,64,73,.15)}
+.bk.alert::before{background:var(--wine)} .bk.alert h4{color:var(--wine)}
+
+.bk.cultural{background:linear-gradient(135deg,var(--plum-bg),var(--bg));border-color:rgba(107,74,107,.12)}
+.bk.cultural::before{background:var(--plum)} .bk.cultural h4{color:var(--plum)}
+
+.bk.star{background:linear-gradient(135deg,var(--copper-bg),var(--bg));border-color:rgba(160,113,79,.18)}
+.bk.star::before{background:var(--copper-d)} .bk.star h4{color:var(--copper-d)}
+
+/* ══ PRONUNCIATION ══ */
+.pron{display:inline-block;font-family:var(--fm);font-size:.82rem;color:var(--copper-d);background:var(--copper-bg);padding:.15rem .5rem;border-radius:4px;border:1px solid rgba(160,113,79,.15)}
+
+/* ══ DIALOGUE ══ */
+.dlg{background:var(--bg-c);border:1px solid var(--brd);border-radius:12px;padding:1.6rem 1.8rem;margin:2rem 0 2.5rem;position:relative;overflow:hidden}
+.dlg::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--copper-d),var(--copper-l),var(--copper-d))}
+.dlg-h{font-family:var(--fb);font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin-bottom:.2rem}
+.dlg-ctx{font-family:var(--fb);font-size:.78rem;color:var(--ink-m);font-style:italic;margin-bottom:1.2rem}
+.ln{display:flex;gap:.8rem;margin-bottom:.8rem;align-items:flex-start}
+.av{flex-shrink:0;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fb);font-size:.52rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:2px}
+.av.you{background:var(--copper-bg);color:var(--copper);border:1.5px solid rgba(160,113,79,.2)}
+.av.them{background:var(--slate-bg);color:var(--slate);border:1.5px solid rgba(74,92,107,.2)}
+.bb{flex:1}
+.bb .en{font-family:var(--fd);font-size:.96rem;color:var(--ink);line-height:1.5;font-weight:500}
+.bb .pt{font-family:var(--fb);font-size:.77rem;color:var(--ink-m);line-height:1.5;margin-top:.08rem}
+
+/* ══ SEP ══ */
+.sep{display:flex;align-items:center;justify-content:center;gap:1rem;padding:3rem 0 0}
+.sep::before,.sep::after{content:'';flex:1;max-width:100px;height:1px;background:var(--brd)}
+.sep .d{width:5px;height:5px;background:var(--copper);transform:rotate(45deg);opacity:.3}
+
+/* ══ FOOTER ══ */
+.footer{text-align:center;padding:3.5rem 2rem;border-top:1px solid var(--brd-l);margin-top:3rem}
+.footer-b{font-family:var(--fd);font-size:1.25rem;color:var(--ink);margin-bottom:.35rem}
+.footer-t{font-family:var(--fb);font-size:.76rem;color:var(--ink-m);line-height:1.75}
+.sig{display:flex;flex-direction:column;align-items:center;gap:1.1rem;margin-top:2.2rem;padding-top:2rem;border-top:1px solid var(--brd-l)}
+.sig-n{font-family:var(--fd);font-size:1.05rem;color:var(--ink)}
+.sig-r{font-family:var(--fb);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--copper);margin-top:.15rem}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:768px){
+  .main{padding:0 1.2rem 4rem}
+  .dlg{padding:1.3rem}
+  .sc{padding-top:3.5rem}
+  .vs,.mindset{grid-template-columns:1fr}
+  .nav-ul a{padding:.8rem .7rem;font-size:.58rem}
+  .ctx-bar{flex-direction:column}
+}
+
+/* ══ ANIM ══ */
+.fi{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fi.v{opacity:1;transform:translateY(0)}
+
+/* ═══ STANDARD FOOTER — identical on every Viaje Bem module ═══ */
+footer.footer{text-align:center;padding:3.5rem 2rem;border-top:1px solid #ECEEF4;margin-top:3rem;line-height:1.75}
+footer.footer .footer-b{font-family:'Bodoni Moda',Georgia,serif;font-size:1.25rem;font-weight:400;color:#141B2D;margin-bottom:.35rem}
+footer.footer .footer-t{font-family:'Nunito Sans',sans-serif;font-size:.76rem;color:#7A8299;line-height:1.75}
+footer.footer .sig{display:flex;flex-direction:column;align-items:center;gap:1.1rem;margin-top:2.2rem;padding-top:2rem;border-top:1px solid #ECEEF4}
+footer.footer .sig-n{font-family:'Bodoni Moda',Georgia,serif;font-size:1.05rem;font-weight:400;color:#141B2D}
+footer.footer .sig-r{font-family:'Nunito Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;margin-top:.15rem}
+
+/* ═══ VIAJE BEM — course-wide standard (same on every module) ═══ */
+main.main,main.course-body{max-width:880px}
+.vb-pager{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:stretch;margin:3.5rem 0 0;font-family:'Nunito Sans',sans-serif}
+.vb-pager a{text-decoration:none;color:#141B2D}
+.vb-card{display:flex;flex-direction:column;gap:.35rem;padding:1.1rem 1.3rem;border:1px solid #E3E5EC;border-radius:10px;background:#FFFFFF;transition:border-color .2s ease,transform .2s ease}
+.vb-card:hover{border-color:#C9A84C;transform:translateY(-2px)}
+.vb-next{text-align:right}
+.vb-dir{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#7A8299}
+.vb-num{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C}
+.vb-t{font-family:'Bodoni Moda',Georgia,serif;font-size:1.08rem;line-height:1.3;color:#141B2D}
+.vb-home{align-self:center;display:inline-flex;align-items:center;padding:.55rem 1.1rem;border:1px solid #E3E5EC;border-radius:100px;background:#FFFFFF;font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#7A8299!important;white-space:nowrap}
+.vb-home:hover{border-color:#C9A84C;color:#141B2D!important}
+.vb-empty{visibility:hidden}
+.vb-dl{display:flex;flex-direction:column;align-items:center;gap:.55rem;margin:3.5rem 0 0;font-family:'Nunito Sans',sans-serif}
+.vb-dl-btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.6rem;border-radius:100px;background:#141B2D;color:#FFFFFF!important;text-decoration:none;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;border:1px solid #141B2D;transition:background .2s ease,border-color .2s ease}
+.vb-dl-btn:hover{background:#1F2A45;border-color:#C9A84C}
+.vb-dl-btn svg{width:16px;height:16px;fill:none;stroke:#C9A84C;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.vb-dl-meta{font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7A8299}
+.vb-dl + .vb-pager{margin-top:2.2rem}
+@media(max-width:768px){.vb-pager{grid-template-columns:1fr}.vb-next{text-align:left}.vb-home{justify-self:center;order:3}.vb-empty{display:none}}
+
+.hero-badge,.hero-module{font-size:.67rem;letter-spacing:.28em;padding:.45rem 1.4rem;margin-bottom:2rem}
+.hero h1{font-size:clamp(2.5rem,5.5vw,4.6rem);line-height:1.12}
+.hero-line{width:50px;margin:2rem auto}
+.hero-sub{font-size:1.15rem;max-width:540px}
+.hero-scroll{margin-top:3.5rem;gap:.4rem;font-size:.62rem;letter-spacing:.2em}
+.hero-scroll svg{width:16px;height:16px}
+</style>
+</head>
+<body>
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-c">
+    <div class="hero-module">English for Travelers — Módulo Completo</div>
+    <h1>Primeiras<br><em>Impressões</em></h1>
+    <div class="hero-line"></div>
+    <p class="hero-sub">Cumprimentos, apresentações e postura cultural.<br>Soe natural desde a primeira palavra.</p>
+    <div class="hero-scroll">
+      Explore o módulo
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"></path></svg>
+    </div>
+  </div>
+</section>
+<!-- ═══ NAV ═══ -->
+<nav class="nav">
+  <div class="nav-in">
+    <ul class="nav-ul">
+      <li><a href="#s1">Formalidade</a></li>
+      <li><a href="#s2">How Are You</a></li>
+      <li><a href="#s3">Have a Good One</a></li>
+      <li><a href="#s4">Apresentando-se</a></li>
+      <li><a href="#s5">Sorry vs Excuse Me</a></li>
+      <li><a href="#s6">Abordando Estranhos</a></li>
+      <li><a href="#s7">Nunca Peça Desculpas</a></li>
+      <li><a href="#s8">Gratidão</a></li>
+      <li><a href="#s9">Quando Não Entende</a></li>
+      <li><a href="#s10">Saindo com Classe</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- ═══ MAIN ═══ -->
+<main class="main"><!-- ███ 1 — FORMALIDADE ███ -->
+<section class="sc" id="s1">
+  <div class="sc-tag"><span class="n">1</span> The Formality Spectrum</div>
+  <h2>O Espectro da Formalidade</h2>
+  <p class="sc-sub">Não se limite ao "Hello". Entenda o contexto e calibre o tom certo desde o primeiro segundo.</p>
+
+  <p class="sc-intro">A fluência não é apenas sobre vocabulário — é sobre <strong>postura cultural</strong>. O modo como você cumprimenta alguém nos primeiros segundos define como o nativo vai te perceber pelo resto da interação. Um "Hello" no Uber soa formal demais; um "Hey" na imigração soa descuidado. Vamos calibrar isso.</p>
+
+  <div class="gr">
+    <div class="gr-t">Ambientes Casuais — Uber, lojas, cafés, bares, amigos</div>
+
+    <div class="cd">
+      <div class="en">"Hi."</div>
+      <div class="pt">Oi.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"Hey."</div>
+      <div class="pt">E aí. / Oi.</div>
+      <div class="nt olive">O mais <strong>comum e versátil</strong> entre americanos. Funciona com praticamente qualquer pessoa em ambiente informal. Se puder escolher apenas um, escolha esse.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"How's it going?"</div>
+      <div class="pt">Como vai? / Tudo bem?</div>
+    </div>
+  </div>
+
+  <div class="gr">
+    <div class="gr-t">Ambientes Formais ou Neutros — Aeroporto, imigração, hotel, reuniões</div>
+
+    <div class="cd">
+      <div class="en">"Hello."</div>
+      <div class="pt">Olá.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"Good morning." / "Good afternoon." / "Good evening."</div>
+      <div class="pt">Bom dia. / Boa tarde. / Boa noite (ao chegar).</div>
+    </div>
+  </div>
+
+  <div class="bk rule">
+    <h4>A Regra da Porta — Good Evening × Good Night</h4>
+    <p>Brasileiros usam "Boa noite" tanto para chegar quanto para sair. No inglês, essa distinção é <strong>rígida</strong> e baseada na abertura ou fechamento da interação — não apenas no horário.</p>
+  </div>
+
+  <div class="vs">
+    <div class="vs-card do">
+      <div class="vs-label"><svg class="vl-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.7 2.7L16 9.6"/></svg>Good Evening — Abertura / Chegada</div>
+      <div class="en">"Good evening. A table for two, please."</div>
+      <div class="pt">Boa noite. Uma mesa para dois, por favor.</div>
+      <div style="margin-top:.5rem;font-family:var(--fb);font-size:.73rem;color:var(--olive);line-height:1.5">Use ao <strong>abrir a porta</strong> da interação: entrar no restaurante, cumprimentar o recepcionista, entrar no Uber.</div>
+    </div>
+    <div class="vs-card dont">
+      <div class="vs-label"><svg class="vl-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>Good Night — Fechamento / Saída</div>
+      <div class="en">"Good night, everyone. See you tomorrow."</div>
+      <div class="pt">Boa noite a todos. Vejo vocês amanhã.</div>
+      <div style="margin-top:.5rem;font-family:var(--fb);font-size:.73rem;color:var(--wine);line-height:1.5">Use ao <strong>fechar a porta</strong>. Significa que você está indo embora ou indo dormir. Chegar em uma festa e dizer "Good night" soa como "Oi, tchau, já estou indo embora".</div>
+    </div>
+  </div>
+</section>
+<div class="sep"><span class="d"></span></div>
+<!-- ███ 2 — HOW ARE YOU ███ -->
+<section class="sc" id="s2">
+  <div class="sc-tag"><span class="n">2</span> Connected Speech</div>
+  <h2>"How Are You?" e a Mágica do Discurso Conectado</h2>
+  <p class="sc-sub">"How are you?" muitas vezes não é uma pergunta profunda — é apenas uma extensão do "Oi".</p>
+
+  <p class="sc-intro">No inglês falado, o <strong>Connected Speech</strong> (discurso conectado) une os sons para ganhar velocidade. Você vai se deparar com pessoas dizendo coisas que parecem irreconhecíveis — mas são apenas variações da mesma pergunta.</p>
+
+  <div class="gr">
+    <div class="gr-t">O que você vai ouvir (e o que realmente significa)</div>
+
+    <div class="cd">
+      <div class="en">"How are you doing?" → <span class="pron">/How-ya-doin?/</span></div>
+      <div class="pt">Como você está? (O '-ing' final vira '-in' e o 'are' quase desaparece.)</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"How is it going?" → <span class="pron">/Howzit-goin?/</span></div>
+      <div class="pt">Como vai? (O 's' de 'is' conecta com 'it'.)</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"What is up?" → <span class="pron">/Sup?/</span></div>
+      <div class="pt">E aí? (Extremamente informal, mas você vai ouvir muito.)</div>
+    </div>
+  </div>
+
+  <div class="gr">
+    <div class="gr-t">A Resposta Automática — O Ping-Pong</div>
+
+    <div class="cd">
+      <div class="en">"Good, you?"</div>
+      <div class="pt">Bem, e você? — Rápido, eficiente.</div>
+      <div class="nt olive">Evite o robótico <strong>"I am fine, thanks, and you?"</strong>. Prefira naturalidade.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"Not bad, yourself?"</div>
+      <div class="pt">Nada mal, e você? — Para quando não for o seu melhor dia.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"I'm doing well, thanks."</div>
+      <div class="pt">Estou bem, obrigado(a). — Um pouco mais polido.</div>
+    </div>
+  </div>
+
+  <div class="gr">
+    <div class="gr-t">Decodificando o "What's up?"</div>
+  </div>
+
+  <p class="sc-intro" style="margin-top:-1rem">O "What's up?" raramente busca fatos. É uma <strong>função fática</strong> — serve para manter o canal aberto ou reconhecer a presença, similar ao nosso "E aí, tudo certo?". A resposta deve ser tão "vazia" quanto a pergunta.</p>
+
+  <div class="ctx-bar">
+    <div class="ctx-item"><div class="label">A Padrão (Segura)</div><div class="en">"Not much." / "Nothing much."</div><div class="pt">Nada demais.</div></div>
+    <div class="ctx-item"><div class="label">A Espelho (Recomendada)</div><div class="en">"Hey, how's it going?"</div><div class="pt">Responda com outra saudação.</div></div>
+    <div class="ctx-item"><div class="label">A "Mesmice" (Conhecidos)</div><div class="en">"Same old, same old."</div><div class="pt">O de sempre.</div></div>
+    <div class="ctx-item"><div class="label">A Literal (Gíria)</div><div class="en">"Sup?" → "Sup."</div><div class="pt">Apenas repita — um aceno de cabeça verbal.</div></div>
+  </div>
+</section>
+<div class="sep"><span class="d"></span></div>
+<!-- ███ 3 — HAVE A GOOD ONE ███ -->
+<section class="sc" id="s3">
+  <div class="sc-tag"><span class="n">3</span> The Chameleon</div>
+  <h2>"Have a Good One" — O Camaleão dos Cumprimentos</h2>
+  <p class="sc-sub">A despedida mais útil do inglês norte-americano. Funciona a qualquer hora, em qualquer contexto.</p>
+
+  <div class="cd">
+    <div class="en">"Have a good one!"</div>
+    <div class="pt">Tenha um bom [qualquer momento que seja agora].</div>
+    <div class="nt copper"><strong>"One"</strong> é um pronome neutro que substitui <em>day, afternoon, evening, night, weekend</em>. O falante usa isso para não precisar calcular que horas são. É elegante, versátil e 100% natural.</div>
+  </div>
+
+  <div class="dlg">
+    <div class="dlg-h">Exemplo Prático</div>
+    <div class="dlg-ctx">No caixa de uma loja — finalizando uma compra</div>
+    <div class="ln"><div class="av them">CA</div><div class="bb"><div class="en">Here's your receipt. Have a good one!</div><div class="pt">Aqui está seu recibo. Tenha um bom dia/noite!</div></div></div>
+    <div class="ln"><div class="av you">You</div><div class="bb"><div class="en">Thanks, you too!</div><div class="pt">Obrigado(a), você também!</div></div></div>
+  </div>
+
+  <div class="bk tip">
+    <h4>Dica de Ouro</h4>
+    <p>A regra é a <strong>reciprocidade imediata</strong>. Quando alguém diz "Have a good one!", responda com <strong>"You too!"</strong> ou <strong>"Thanks, you too."</strong> — rápido e natural. Não precisa pensar se é dia, tarde ou noite.</p>
+  </div>
+</section>
+<div class="sep"><span class="d"></span></div>
+<!-- ███ 4 — APRESENTANDO-SE ███ -->
+<section class="sc" id="s4">
+  <div class="sc-tag"><span class="n">4</span> Introductions</div>
+  <h2>Apresentando-se</h2>
+  <p class="sc-sub">Apresentação não é monólogo. É ponte. Seja breve, acessível e natural.</p>
+
+  <p class="sc-intro">Em viagens, ninguém quer ouvir sua biografia completa na fila do café. Você precisa de <strong>agilidade</strong>. O segredo do Small Talk (conversa casual) é ser breve e acessível.</p>
+
+  <div class="gr">
+    <div class="gr-t">O Padrão — esqueça o "My name is..."</div>
+
+    <div class="cd">
+      <div class="en">"I'm Ana."</div>
+      <div class="pt">Sou a Ana. — Imediato, natural.</div>
+      <div class="nt olive">Em conversas casuais, prefira a rapidez do <strong>"I'm"</strong>. O robótico <strong>"My name is…"</strong> está correto, mas soa como livro escolar.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"I'm visiting from Brazil."</div>
+      <div class="pt">Estou visitando, venho do Brasil. — Ótimo para turistas, pois já explica o motivo da presença.</div>
+    </div>
+  </div>
+
+  <div class="bk rule">
+    <h4>A Nuance da Pronúncia — O "From" Invisível</h4>
+    <p>O erro clássico do brasileiro é colocar o peso na preposição: <strong>"I'm FROOOM Brazil"</strong>. No inglês natural, preposições são átonas (fracas). O destaque tem que estar na informação importante: o país.<br><br><strong>A Regra do Holofote:</strong> Imagine que a palavra <em>Brazil</em> está em negrito e o <em>from</em> está minúsculo. O som do "from" deve ser um leve suspiro <span class="pron">/frəm/</span>, quase imperceptível. Conecte tudo: <span class="pron">/I'm-from-BRAZIL/</span></p>
+  </div>
+
+  <div class="gr">
+    <div class="gr-t">"Call me…" — O Facilitador de Amizades</div>
+  </div>
+
+  <p class="sc-intro" style="margin-top:-1rem">Os EUA operam na cultura do <strong>"First Name Basis"</strong> (tratar pelo primeiro nome). Formalidade excessiva cria distância. E nomes brasileiros podem ser difíceis para estrangeiros — facilite a vida do nativo.</p>
+
+  <div class="cd">
+    <div class="en">"I'm Jéssica, but you can call me Jess."</div>
+    <div class="pt">Sou a Jéssica, mas pode me chamar de Jess.</div>
+  </div>
+  <div class="cd">
+    <div class="en">"I'm Matheus, but please, call me Matt."</div>
+    <div class="pt">Sou o Matheus, mas por favor, me chame de Matt.</div>
+  </div>
+  <div class="cd">
+    <div class="en">"I'm Thaiana. It's hard to say, so call me Thai."</div>
+    <div class="pt">Sou a Thaiana. É difícil de falar, então me chame de Thai.</div>
+    <div class="nt copper">Use a estrutura: <strong>[Nome Real]</strong> + <strong>"But you can call me"</strong> + <strong>[Apelido/Nome Curto]</strong>. Isso gera rapport imediato — você demonstra flexibilidade e o nativo se sente mais confortável.</div>
+  </div>
+
+  <div class="gr">
+    <div class="gr-t">A Armadilha da Memória — "Meet" vs. "See"</div>
+  </div>
+
+  <p class="sc-intro" style="margin-top:-1rem">Esta é uma nuance cultural crítica para viajantes que encontram as mesmas pessoas repetidas vezes — o concierge do hotel, o anfitrião do Airbnb, um colega de conferência. A diferença está no <strong>reconhecimento</strong>.</p>
+
+  <div class="vs">
+    <div class="vs-card do">
+      <div class="vs-label"><svg class="vl-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5c0-3.2 2.5-5.5 5.5-5.5s5.5 2.3 5.5 5.5M18 8.5v6M15 11.5h6"/></svg>Primeiro Encontro</div>
+      <div class="en">"Nice to meet you."</div>
+      <div class="pt">Prazer em conhecer você.</div>
+      <div style="margin-top:.4rem;font-family:var(--fb);font-size:.72rem;color:var(--olive);line-height:1.5">Use <strong>exclusivamente</strong> na primeira vez que é apresentado a alguém.</div>
+    </div>
+    <div class="vs-card do">
+      <div class="vs-label"><svg class="vl-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.7M20 4v4.7h-4.7M20 12a8 8 0 0 1-13.7 5.6L4 15.3M4 20v-4.7h4.7"/></svg>Do Segundo Encontro em Diante</div>
+      <div class="en">"Nice to see you." / "Good to see you again."</div>
+      <div class="pt">Bom ver você. / Bom te ver de novo.</div>
+      <div style="margin-top:.4rem;font-family:var(--fb);font-size:.72rem;color:var(--olive);line-height:1.5">Use a partir do momento que já viu o rosto da pessoa, nem que tenha sido 10 minutos atrás.</div>
+    </div>
+  </div>
+
+  <div class="bk alert">
+    <h4>O Erro Cultural — Por Que Evitar</h4>
+    <p>Dizer <strong>"Nice to meet you"</strong> para alguém que você já conheceu não é apenas um erro gramatical — é uma <strong>gafe social</strong>. Para o americano, isso soa como: "Eu não faço ideia de quem você é, ou você é tão insignificante que eu já esqueci que fomos apresentados."<br><br>Na dúvida, opte pelo neutro: <strong>"Hi! How are you doing?"</strong>. É mais seguro do que arriscar um "Nice to meet you" repetido.</p>
+  </div>
+</section>
+<div class="sep"><span class="d"></span></div>
+<!-- ███ 5 — SORRY vs EXCUSE ME ███ -->
+<section class="sc" id="s5">
+  <div class="sc-tag"><span class="n">5</span> Calibrating Politeness</div>
+  <h2>O Espectro do "Sorry"</h2>
+  <p class="sc-sub">Brasileiros tendem a pedir desculpas demais. Nos EUA, o uso excessivo de "Sorry" pode soar inseguro.</p>
+
+  <div class="bk rule">
+    <h4>A Regra de Ouro — Tempo e Intenção</h4>
+    <p><strong>EXCUSE ME</strong> (Antes): Use para pedir permissão, interromper ou abrir caminho. Você ainda não fez nada "errado" — apenas precisa de espaço ou atenção.<br><br><strong>SORRY</strong> (Depois): Use para reparar um erro, um acidente ou um atraso. Algo já aconteceu.</p>
+  </div>
+
+  <div class="gr">
+    <div class="gr-t">Guia Rápido de Situações</div>
+
+    <div class="cd">
+      <div class="en">"Excuse me."</div>
+      <div class="pt">Com licença. — Precisa passar na multidão.</div>
+      <div class="nt olive">Você está pedindo passagem ou chamando a atenção educadamente. Não use "sorry" aqui — você não fez nada errado.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"Oop, sorry."</div>
+      <div class="pt">Ops, desculpe. — Esbarrou sem querer.</div>
+      <div class="nt copper">O som curto <strong>"Oop"</strong> transmite surpresa imediata e é extremamente natural para nativos. Torna o pedido de desculpas mais espontâneo e autêntico.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"I'm sorry?" <span style="font-size:.85rem;color:var(--ink-m)">(entonação de pergunta ↗)</span></div>
+      <div class="pt">Como disse? — Não entendeu o que disseram.</div>
+      <div class="nt slate">Use com a <strong>voz subindo no final</strong>. Se a entonação cair, soa como pedido de desculpas. Para perguntar, a voz tem que subir. Muito mais educado do que apenas "What?".</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"Sorry I'm late."</div>
+      <div class="pt">Desculpe, estou atrasado(a). — Chegou atrasado.</div>
+      <div class="nt olive">Aqui existe uma falha real (o atraso), então o pedido de desculpas é apropriado e esperado socialmente.</div>
+    </div>
+  </div>
+</section>
+<div class="sep"><span class="d"></span></div>
+<!-- ███ 6 — ABORDANDO ESTRANHOS ███ -->
+<section class="sc" id="s6">
+  <div class="sc-tag"><span class="n">6</span> Approaching Strangers</div>
+  <h2>Quebrando o Gelo — Como Abordar Estranhos</h2>
+  <p class="sc-sub">Perguntas diretas demais podem soar agressivas. Aprenda a "preparar o terreno" antes de pedir informação.</p>
+
+  <p class="sc-intro">Abordar alguém na rua ou em uma loja exige cuidado. Perguntas diretas como "Where is the bathroom?" podem soar rudes se não houver preparação. Você precisa de <strong>suavizadores (softeners)</strong> — frases que criam contexto antes da pergunta real.</p>
+
+  <div class="gr">
+    <div class="gr-t">Os "Suavizadores" — Softeners</div>
+
+    <div class="cd">
+      <div class="en">"Excuse me, could you help me?"</div>
+      <div class="pt">Com licença, você pode me ajudar? — A Entrada perfeita.</div>
+    </div>
+  </div>
+
+  <div class="bk rule">
+    <h4>A Pergunta Indireta — A Armadilha Gramatical</h4>
+    <p>Ao usar uma frase introdutória (<strong>"Do you know…"</strong>), a gramática muda. O verbo sai do meio e vai para o final.<br><br>
+    <span class="mk no"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg></span>Direto (pode soar rude): <strong>"Where is the subway?"</strong><br>
+    <span class="mk no"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg></span>Indireto (errado): <strong>"Do you know where <u>is</u> the subway?"</strong><br>
+    <span class="mk ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.7 2.7L16 9.6"/></svg></span>Indireto (correto): <strong>"Do you know where the subway <u>is</u>?"</strong><br><br>
+    <strong>Dica Visual:</strong> Pense que o "Do you know" já gastou a cota de interrogação da frase. O resto volta para a ordem normal de afirmação.</p>
+  </div>
+
+  <div class="gr">
+    <div class="gr-t">O Atalho — A Afirmação com Intenção</div>
+  </div>
+
+  <p class="sc-intro" style="margin-top:-1rem">Se a regra gramatical parecer difícil na hora do nervosismo, use o "truque da afirmação". Basta dizer o que você está procurando.</p>
+
+  <div class="dlg">
+    <div class="dlg-h">Exemplo Prático</div>
+    <div class="dlg-ctx">Na rua — você está procurando uma loja</div>
+    <div class="ln"><div class="av you">You</div><div class="bb"><div class="en">Excuse me.</div><div class="pt">Com licença.</div></div></div>
+    <div class="ln"><div class="av them">STR</div><div class="bb"><div class="en">Yeah?</div><div class="pt">Sim?</div></div></div>
+    <div class="ln"><div class="av you">You</div><div class="bb"><div class="en">I'm looking for the Apple Store.</div><div class="pt">Estou procurando a Apple Store.</div></div></div>
+  </div>
+
+  <div class="bk tip">
+    <h4>Dica de Ouro</h4>
+    <p>Essa abordagem não exige inversão de verbo e é perfeitamente compreendida como um pedido de ajuda. É mais fácil e igualmente eficaz.</p>
+  </div>
+</section>
+<div class="sep"><span class="d"></span></div>
+<!-- ███ 7 — NUNCA PEÇA DESCULPAS ███ -->
+<section class="sc" id="s7">
+  <div class="sc-tag"><span class="n">7</span> Never Apologize</div>
+  <h2>Nunca Peça Desculpas Pelo Seu Inglês</h2>
+  <p class="sc-sub">Trocar desculpa por gratidão muda completamente a forma como os nativos te percebem.</p>
+
+  <p class="sc-intro">Um erro comum do brasileiro é começar dizendo: <strong>"Sorry for my bad English"</strong>. Isso <strong>baixa seu status</strong> (você se coloca em posição de inferioridade), <strong>foca no erro</strong> (o ouvinte vai procurar por falhas que nem notaria), e é <strong>desnecessário</strong> — você fala duas línguas, o nativo geralmente só fala uma. Você é quem está fazendo o esforço.</p>
+
+  <div class="gr">
+    <div class="gr-t">O "Pulo do Gato" — Gratidão vs. Desculpa</div>
+  </div>
+
+  <p class="sc-intro" style="margin-top:-1rem">Em vez de pedir desculpas pela dificuldade, <strong>agradeça pela paciência do outro</strong>. Isso muda a energia de "negativa" (culpa) para "positiva" (apreço).</p>
+
+  <div class="mindset">
+    <div class="ms-card guilt">
+      <div class="ms-label">Mindset de Culpa</div>
+      <div class="en">"Sorry for my bad English."</div>
+    </div>
+    <div class="ms-card conf">
+      <div class="ms-label">Mindset de Confiança</div>
+      <div class="en">"Thank you for your patience."</div>
+      <div class="pt">Obrigado(a) pela sua paciência.</div>
+    </div>
+  </div>
+
+  <div class="mindset">
+    <div class="ms-card guilt">
+      <div class="ms-label">Mindset de Culpa</div>
+      <div class="en">"Sorry, I don't understand."</div>
+    </div>
+    <div class="ms-card conf">
+      <div class="ms-label">Mindset de Confiança</div>
+      <div class="en">"Thanks for explaining that again."</div>
+      <div class="pt">Obrigado(a) por explicar de novo.</div>
+    </div>
+  </div>
+
+  <div class="mindset">
+    <div class="ms-card guilt">
+      <div class="ms-label">Mindset de Culpa</div>
+      <div class="en">"My English is terrible."</div>
+    </div>
+    <div class="ms-card conf">
+      <div class="ms-label">Mindset de Confiança</div>
+      <div class="en">"I'm still learning, thanks for helping."</div>
+      <div class="pt">Ainda estou aprendendo, obrigado(a) pela ajuda.</div>
+    </div>
+  </div>
+
+  <div class="bk star">
+    <h4>Ideia Central</h4>
+    <p>A linguagem molda a percepção. Troque: <strong>desculpa → gratidão</strong>, <strong>limitação → progresso</strong>, <strong>culpa → confiança</strong>. Essas pequenas mudanças fazem você soar mais natural, respeitoso e profissional em qualquer ambiente internacional.</p>
+  </div>
+</section>
+<div class="sep"><span class="d"></span></div>
+<!-- ███ 8 — GRATIDÃO ███ -->
+<section class="sc" id="s8">
+  <div class="sc-tag"><span class="n">8</span> The Gratitude Cycle</div>
+  <h2>O Ciclo da Gratidão — Além do Básico</h2>
+  <p class="sc-sub">Saia do piloto automático do "Thank you" e "You're welcome" dos livros didáticos.</p>
+
+  <div class="gr">
+    <div class="gr-t">Níveis de Agradecimento</div>
+
+    <div class="cd">
+      <div class="en">"Thanks." / "Thanks a lot."</div>
+      <div class="pt">Valeu. / Muito obrigado(a).</div>
+      <div class="nt copper"><strong>Casual</strong> — Para situações rápidas: receber o troco, alguém segurar o elevador.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"I appreciate it."</div>
+      <div class="pt">Eu agradeço.</div>
+      <div class="nt olive"><strong>O Padrão Ouro.</strong> Esta é a frase que separa o turista básico do comunicador maduro. Use quando alguém faz algo específico por você — o concierge conseguiu um ingresso difícil, o garçom trouxe um refil sem pedir. Significa: "Eu reconheço e valorizo o seu esforço."</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"Thank you so much." / "Thank you very much."</div>
+      <div class="pt">Muito obrigado(a) mesmo.</div>
+      <div class="nt copper"><strong>Formal / Enfático</strong> — Quando precisa ser muito educado ou expressar gratidão genuína.</div>
+    </div>
+  </div>
+
+  <div class="bk rule">
+    <h4>O Segredo da Pronúncia de "I Appreciate It"</h4>
+    <p>Não fale pausado: "I - appreciate - it". Conecte tudo em um único fluxo de som: <span class="pron">/I-ã-pri-shi-eir-it/</span>. O 't' de 'ate' vira um som de 'R' suave, e o 'it' final conecta direto.</p>
+  </div>
+
+  <div class="gr">
+    <div class="gr-t">Respondendo ao Agradecimento — O "De Nada" Natural</div>
+  </div>
+
+  <p class="sc-intro" style="margin-top:-1rem"><strong>"You're welcome"</strong> pode soar formal demais em situações casuais. Os americanos modernos (especialmente abaixo de 40 anos) preferem indicar que a ajuda não foi um fardo.</p>
+
+  <div class="cd">
+    <div class="en">"No problem."</div>
+    <div class="pt">Sem problema. — A favorita dos americanos. Extremamente versátil.</div>
+    <div class="nt olive"><strong>Vibe:</strong> "Não foi incômodo algum." Transmite leveza e naturalidade. Funciona em quase todo contexto.</div>
+  </div>
+
+  <div class="cd">
+    <div class="en">"Sure."</div>
+    <div class="pt">Claro! — Resposta rápida, direta e leve.</div>
+    <div class="nt copper"><strong>Vibe:</strong> Eficiência e disponibilidade imediata. Muito comum em lojas e serviços.</div>
+  </div>
+
+  <div class="cd">
+    <div class="en">"Anytime."</div>
+    <div class="pt">Sempre que precisar.</div>
+    <div class="nt olive"><strong>Vibe:</strong> Calorosa e amigável. Demonstra proximidade e boa vontade. Ótima para relações mais humanas.</div>
+  </div>
+
+  <div class="cd">
+    <div class="en">"Uh-huh."</div>
+    <div class="pt">Aham. — Apenas um som de confirmação.</div>
+    <div class="nt wine"><strong>CUIDADO.</strong> Aceitável em interações muito rápidas, mas pode soar rude ou desinteressado se não houver sorriso e entonação adequada. Evite se não estiver confortável.</div>
+  </div>
+</section>
+<div class="sep"><span class="d"></span></div>
+<!-- ███ 9 — QUANDO NÃO ENTENDE ███ -->
+<section class="sc" id="s9">
+  <div class="sc-tag"><span class="n">9</span> Survival Mode</div>
+  <h2>Modo Sobrevivência — Quando Você Não Entende</h2>
+  <p class="sc-sub">O erro não é deixar de entender — é travar a conversa. Mantenha a bola em jogo.</p>
+
+  <p class="sc-intro">Não entender algo é normal. Evite o <strong>"I don't understand"</strong>. Ele soa como um ponto final — como se você estivesse dizendo: "Meu inglês acabou aqui, desisto." Vamos trocar isso por <strong>Estratégias de Reparo</strong>.</p>
+
+  <div class="gr">
+    <div class="gr-t">O Kit de Ferramentas — Alternativas Naturais</div>
+
+    <div class="cd">
+      <div class="en">"Sorry?" <span style="font-size:.85rem;color:var(--ink-m)">(entonação subindo ↗)</span></div>
+      <div class="pt">Como? — A Solução Rápida (você não ouviu direito).</div>
+      <div class="nt slate">Se a entonação cair, soa como pedido de desculpas. Para perguntar, a voz <strong>tem que subir</strong>.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"Could you say that again, please?"</div>
+      <div class="pt">Poderia repetir, por favor? — O Pedido de "Replay".</div>
+      <div class="nt olive">Clássico, educado e funciona com qualquer pessoa. Variação mais curta: <strong>"Say that again?"</strong></div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"Did you say [o que você ouviu]?"</div>
+      <div class="pt">Você disse [...]? — A Confirmação (entendeu só metade).</div>
+      <div class="nt copper">Repita a parte que entendeu para forçar a pessoa a confirmar o resto. Exemplo: <strong>"Did you say Gate 40 or 14?"</strong></div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"Sorry, I didn't get that." / "I didn't get it."</div>
+      <div class="pt">Desculpe, não peguei. / Não captei.</div>
+      <div class="nt olive"><strong>O Nível Nativo.</strong> Substitua "understand" por <strong>"get"</strong>. É assim que nativos falam. Soa muito mais fluente e menos "livro escolar".</div>
+    </div>
+  </div>
+
+  <div class="gr">
+    <div class="gr-t">Controlando o Ritmo</div>
+  </div>
+
+  <p class="sc-intro" style="margin-top:-1rem">Às vezes você entende o inglês, mas o nativo está falando na velocidade 2x. Saiba pedir tempo e velocidade.</p>
+
+  <div class="cd">
+    <div class="en">"Just a second." / "Just a sec."</div>
+    <div class="pt">Só um segundo.</div>
+    <div class="nt wine">Dizer apenas <strong>"Wait"</strong> soa como uma ordem. É imperativo e rude. Use "suavizadores" de tempo.</div>
+  </div>
+
+  <div class="cd">
+    <div class="en">"One moment, please."</div>
+    <div class="pt">Um momento, por favor. — Padrão em balcões e lojas.</div>
+  </div>
+
+  <div class="cd">
+    <div class="en">"Hold on a second."</div>
+    <div class="pt">Espere um segundo. — Informal, mas muito usado.</div>
+  </div>
+
+  <div class="cd">
+    <div class="en">"Could you speak a little slower, please?"</div>
+    <div class="pt">Poderia falar um pouco mais devagar, por favor?</div>
+    <div class="nt wine">Evite <strong>"Speak slow"</strong> — soa como ordem. Use <strong>"Could you…"</strong> para suavizar.</div>
+  </div>
+
+  <div class="cd">
+    <div class="en">"Can you slow down a bit? I'm learning English."</div>
+    <div class="pt">Pode desacelerar um pouco? Estou aprendendo inglês.</div>
+    <div class="nt olive">Usar o card <strong>"estou aprendendo"</strong> geralmente desperta empatia imediata.</div>
+  </div>
+</section>
+<div class="sep"><span class="d"></span></div>
+<!-- ███ 10 — SAINDO COM CLASSE ███ -->
+<section class="sc" id="s10">
+  <div class="sc-tag"><span class="n">10</span> Exit with Grace</div>
+  <h2>Saindo com Classe</h2>
+  <p class="sc-sub">No Brasil, despedidas são longas. Nos EUA, a saída é rápida e objetiva.</p>
+
+  <p class="sc-intro">Ficar parado sem saber como ir embora cria desconforto. O americano sinaliza que vai encerrar a interação <strong>antes</strong> de dizer "tchau" — é o chamado <strong>Pre-Bye</strong>.</p>
+
+  <div class="gr">
+    <div class="gr-t">O Sinal de Saída — The Pre-Bye</div>
+
+    <div class="cd">
+      <div class="en">"Alright…" <span style="font-size:.85rem;color:var(--ink-m)">(batendo levemente na mesa ou nas pernas)</span></div>
+      <div class="pt">Então, é isso! — O sinal universal de que a conversa vai encerrar.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"Well, I gotta go."</div>
+      <div class="pt">Bem, preciso ir.</div>
+    </div>
+  </div>
+
+  <div class="gr">
+    <div class="gr-t">O Vocabulário de Despedida</div>
+
+    <div class="cd">
+      <div class="en">"Goodbye"</div>
+      <div class="pt">Adeus.</div>
+      <div class="nt wine"><strong>Evite.</strong> Soa muito definitivo, dramático ou frio — como se você nunca mais fosse ver a pessoa.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"See you later." / "See ya."</div>
+      <div class="pt">Te vejo depois! / Até mais!</div>
+      <div class="nt olive"><strong>O padrão ouro</strong> para amigos e conhecidos. Leve e otimista.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"Take care."</div>
+      <div class="pt">Se cuida.</div>
+      <div class="nt copper">Muito comum, amigável e demonstra carinho sem intimidade excessiva.</div>
+    </div>
+
+    <div class="cd">
+      <div class="en">"Have a good one."</div>
+      <div class="pt">Tenha um bom [momento do dia].</div>
+      <div class="nt olive">Relembrando o Tópico 3 — serve tanto para cumprimentar quanto para dar tchau.</div>
+    </div>
+  </div>
+
+  <div class="dlg">
+    <div class="dlg-h">Diálogo Completo — Do Cumprimento à Despedida</div>
+    <div class="dlg-ctx">Na recepção do hotel — conversando com o concierge</div>
+
+    <div class="ln"><div class="av them">CON</div><div class="bb"><div class="en">Good morning! How's it going?</div><div class="pt">Bom dia! Como vai?</div></div></div>
+    <div class="ln"><div class="av you">You</div><div class="bb"><div class="en">Good morning! I'm doing well, thanks. I'm Ana, by the way. I'm visiting from Brazil.</div><div class="pt">Bom dia! Estou bem, obrigada. Sou a Ana, a propósito. Estou visitando, venho do Brasil.</div></div></div>
+    <div class="ln"><div class="av them">CON</div><div class="bb"><div class="en">Welcome, Ana! Nice to meet you. How can I help?</div><div class="pt">Bem-vinda, Ana! Prazer em conhecer. Como posso ajudar?</div></div></div>
+    <div class="ln"><div class="av you">You</div><div class="bb"><div class="en">Could you recommend a good restaurant nearby? Something casual.</div><div class="pt">Poderia recomendar um bom restaurante por perto? Algo casual.</div></div></div>
+    <div class="ln"><div class="av them">CON</div><div class="bb"><div class="en">Sure! There's a great Italian place two blocks down. They have amazing pasta.</div><div class="pt">Claro! Tem um ótimo restaurante italiano duas quadras abaixo. Eles têm massas incríveis.</div></div></div>
+    <div class="ln"><div class="av you">You</div><div class="bb"><div class="en">That sounds perfect. I appreciate it!</div><div class="pt">Parece perfeito. Eu agradeço!</div></div></div>
+    <div class="ln"><div class="av them">CON</div><div class="bb"><div class="en">No problem! Have a good one.</div><div class="pt">Sem problema! Tenha um bom dia.</div></div></div>
+    <div class="ln"><div class="av you">You</div><div class="bb"><div class="en">Thanks, you too! See you later.</div><div class="pt">Obrigada, você também! Até mais.</div></div></div>
+  </div>
+
+  <div class="bk star">
+    <h4>Parabéns!</h4>
+    <p>Você acaba de dar o passo mais importante: entender que a fluência não é apenas sobre vocabulário, mas sobre <strong>postura cultural</strong>. Pequenos ajustes — como saber a hora certa de usar "Good Evening", trocar o "Sorry" excessivo por um "Excuse me" confiante, ou usar o poderoso "I appreciate it" — mudam completamente a forma como os nativos te percebem. Você deixa de ser apenas um turista inseguro e passa a ser um <strong>comunicador preparado</strong>.</p>
+  </div>
+</section>
+<!-- ═══ FOOTER ═══ -->
+<div class="sep"><span class="d"></span></div>
+<div class="vb-dl"><a class="vb-dl-btn" href="viaje-bem-01-primeiras-impressoes.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></svg>Baixar o material em PDF</a><span class="vb-dl-meta">PDF · 14 páginas</span></div>
+<nav class="vb-pager" aria-label="Navegação entre módulos">
+  <a class="vb-card vb-prev" href="https://institutomdtalk.github.io/viajebem/"><span class="vb-dir">← Anterior</span><span class="vb-num">Boas-Vindas</span><span class="vb-t">Welcome</span></a>
+  <a class="vb-home" href="https://institutomdtalk.github.io/viajebem/">Todos os módulos</a>
+  <a class="vb-card vb-next" href="https://institutomdtalk.github.io/viajebem2/"><span class="vb-dir">Próximo →</span><span class="vb-num">Módulo 02</span><span class="vb-t">Airport, Flight &amp; Immigration</span></a>
+</nav>
+<footer class="footer">
+  <div class="footer-b">Primeiras Impressões — English for Travelers</div>
+  <p class="footer-t">Conteúdo exclusivo para fins educacionais.<br>Desenvolvido com excelência para alunos que buscam comunicação internacional de alto nível.</p>
+  <div class="sig">
+    <div><div class="sig-n">Thaiana Faria</div><div class="sig-r">Especialista em Inglês Médico e Comunicação Científica · MD Talk</div></div>
+    <div><div class="sig-n">Thiago Faria</div><div class="sig-r">Produção de Conteúdo Técnico · The Engine Lab</div></div>
+  </div>
+</footer>
+</main>
+</body>
+</html>
